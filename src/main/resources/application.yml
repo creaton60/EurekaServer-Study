@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eureka-service
+
+eureka:
+  client:
+    register-with-eureka: false #자기 자신은 Eureka 에 등록하지 않는다.
+    fetch-registry: false
+
+# 서비스에 생존 신호를 보내지 않는 로드비율이 높아지면
+# 유레카는 일단 이를 애플리케이션 문제가 아니라 네트워크 문제로 가정
+# 생존신호를 보내지 않는 노드를 레지스트리에서 제거하지 않음.
+# 이를 자기 보호 모드라고 함.
+# self preservation 은 true 로 지정해도 괜찮음.
+# BUT ! 예제를 실행하는 환경처럼 작은 수의 인스턴스 구성에서는 기대하는 대로 동작 안할 수 있음.
+
+  server:
+    enable-self-preservation: false
